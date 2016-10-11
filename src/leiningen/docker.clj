@@ -6,13 +6,14 @@
   (apply main/debug "Exec: docker" args)
   (apply eval/sh "docker" args))
 
-(def valid-command? #{:build :push})
+(def valid-command? #{:build :push :remove})
 
 (defn docker
   "Builds and delpoys docker images.
    Commands:
      'build' builds your docker image
-     'push' pushes your docker image"
+     'push' pushes your docker image
+     'remove' removes your docker image"
   [project command & [image-name]]
 
   (let [command (keyword command)]
@@ -48,4 +49,13 @@
                     (main/info "Docker image pushed.")
                     (do
                       (main/warn "Docker image could not be pushed.")
-                      (main/exit exit-code)))))))))
+                      (main/exit exit-code)))))
+
+        :remove (do
+                  (main/info "Removing Docker image " image)
+                  (let [exit-code (exec "rmi" image)]
+                    (if (zero? exit-code)
+                      (main/info "Docker image removed")
+                      (do
+                        (main/warn "Docker image could not be removed.")
+                        (main/exit exit-code)))))))))
