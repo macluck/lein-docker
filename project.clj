@@ -1,4 +1,4 @@
-(defproject macluck/lein-docker "1.3.0-SNAPSHOT"
+(defproject macluck/lein-docker "1.3.0"
   :description "A leiningen plugin to build docker images and deploy them."
   :url "https://github.com/macluck/lein-docker"
 
