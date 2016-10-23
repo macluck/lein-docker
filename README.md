@@ -18,6 +18,7 @@ You can add the following configuration options at the root of your `project.clj
 
 ```clojure
 :docker {:image-name "myregistry.example.org/myimage"
+         :image-version "latest"
          :dockerfile "target/dist/Dockerfile"
          :build-dir  "target"}
 ```
