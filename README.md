@@ -2,22 +2,15 @@
 
 A Leiningen plugin to build and deploy [Docker](https://www.docker.com/) images.
 
-[![Clojars Project](http://clojars.org/io.sarnowski/lein-docker/latest-version.svg)](http://clojars.org/io.sarnowski/lein-docker)
+[![Clojars Project](https://img.shields.io/clojars/v/macluck/lein-docker.svg)](https://clojars.org/macluck/lein-docker)
 
 ## Usage
-
-Add docker-deploy to your plugin list in your `project.clj`:
-
-```clojure
-:plugins [[io.sarnowski/lein-docker "1.0.0"]]
-```
-
-(see version badge above for newest release)
 
 Available commands:
 
     $ lein docker build
     $ lein docker push
+    $ lein docker remove
 
 ## Configuration
 
